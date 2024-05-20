@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (3)</title>
+</head>
+<body>
+    <script>
+    let hospedes = [];
+    const maxCadastros = 15;
+
+    function cadastrarHospede() {
+        if (hospedes.length >= maxCadastros) {
+            alert("Máximo de cadastros atingido");
+            return;
+        }
+
+        let nomeHospede = prompt("Qual o nome do Hóspede?");
+        if (nomeHospede) {
+            hospedes.push(nomeHospede.trim());
+            alert(`Hóspede ${nomeHospede} foi cadastrada(o) com sucesso!`);
+        } else {
+            alert("Nome do hóspede não pode ser vazio.");
+        }
+    }
+
+    function pesquisarHospede() {
+        let nomeHospede = prompt("Qual o nome do Hóspede?");
+        if (nomeHospede) {
+            if (hospedes.includes(nomeHospede.trim())) {
+                alert(`Hóspede ${nomeHospede} foi encontrado(a)!`);
+            } else {
+                alert(`Hóspede ${nomeHospede} não foi encontrado(a)!`);
+            }
+        } else {
+            alert("Nome do hóspede não pode ser vazio.");
+        }
+    }
+
+    function menu() {
+        let opcao;
+        do {
+            opcao = prompt("Selecione uma opção:\n1. Cadastrar\n2. Pesquisar\n3. Sair");
+            switch (opcao) {
+                case '1':
+                    cadastrarHospede();
+                    break;
+                case '2':
+                    pesquisarHospede();
+                    break;
+                case '3':
+                    alert("Saindo do sistema. Até logo!");
+                    break;
+                default:
+                    alert("Opção inválida. Por favor, escolha uma opção válida.");
+            }
+        } while (opcao !== '3');
+    }
+
+    menu();
+</script>
+</body>
+</html>

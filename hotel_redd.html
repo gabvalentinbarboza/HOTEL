@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd</title>
+</head>
+<body>
+    <script>
+        let nomeHotel = '';
+
+function inicio() {
+    nomeHotel = prompt("Digite o nome do Hotel:");
+    alert(`O nome do hotel é ${nomeHotel}`);
+    
+    const nomeUsuario = prompt("Digite seu nome:");
+    const senha = prompt("Digite sua senha:");
+    
+    if (senha === "2678") {
+        alert(`Bem vindo ao Hotel ${nomeHotel}, ${nomeUsuario}. É um imenso prazer ter você por aqui!`);
+        menuPrincipal();
+    } else {
+        alert("Senha incorreta. Tente novamente.");
+        inicio();
+    }
+}
+
+function menuPrincipal() {
+    const opcao = prompt(`Menu Principal:
+    1. Opção 1
+    2. Opção 2
+    3. Sair
+    
+    Escolha uma opção:`);
+    
+    switch(opcao) {
+        case '1':
+            programaOpcao1();
+            break;
+        case '2':
+            programaOpcao2();
+            break;
+        case '3':
+            alert(`Muito obrigado e até logo, ${nomeUsuario}.`);
+            inicio();
+            break;
+        default:
+            erro();
+    }
+}
+
+function programaOpcao1() {
+    alert(`Você selecionou a Opção 1. Implemente o código correspondente aqui.`);
+    menuPrincipal();
+}
+
+function programaOpcao2() {
+    alert(`Você selecionou a Opção 2. Implemente o código correspondente aqui.`);
+    menuPrincipal();
+}
+
+function erro() {
+    alert("Opção inválida. Por favor, escolha uma opção válida.");
+    menuPrincipal();
+}
+
+// Inicialização do programa
+inicio();
+
+    </script>    
+</body>
+</html>

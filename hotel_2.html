@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (2)</title>
+</head>
+<body>
+    <script>
+        function cadastrarHospedes() {
+            let valorDiaria = parseFloat(prompt("Qual o valor padrão da diária?"));
+            let totalGratuidades = 0;
+            let totalMeiasHospedagens = 0;
+            let valorTotalHospedagens = 0;
+        
+            while (true) {
+                let nomeHospede = prompt("Qual o nome do Hóspede?");
+                if (nomeHospede.toUpperCase() === "PARE") {
+                    break;
+                }
+                let idadeHospede = parseInt(prompt("Qual a idade do Hóspede?"));
+        
+                let valorDiariaHospede = valorDiaria;
+                if (idadeHospede < 6) {
+                    alert(`${nomeHospede} possui gratuidade`);
+                    totalGratuidades++;
+                } else if (idadeHospede > 60) {
+                    valorDiariaHospede /= 2;
+                    alert(`${nomeHospede} paga meia`);
+                    totalMeiasHospedagens++;
+                }
+        
+                valorTotalHospedagens += valorDiariaHospede;
+                alert(`${nomeHospede} cadastrada(o) com sucesso.`);
+            }
+        
+            alert(`O valor total das hospedagens é: R$${valorTotalHospedagens.toFixed(2)}; ${totalGratuidades} gratuidade(s); ${totalMeiasHospedagens} meia(s)`);
+        }
+        
+        cadastrarHospedes();
+    </script>
+    
+</body>
+</html>

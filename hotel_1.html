@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (1)</title>
+</head>
+<body>
+    <script>
+        function reservarQuarto() {
+    // Receber o valor da diária e a quantidade de dias de hospedagem
+    let valorDiaria = parseFloat(prompt("Qual o valor da diária?"));
+    let quantidadeDias = parseInt(prompt("Quantas diárias serão necessárias?"));
+    
+    // Validar as informações
+    if (isNaN(valorDiaria) || valorDiaria <= 0 || quantidadeDias <= 0 || quantidadeDias > 30) {
+        alert("Valor inválido.");
+        return;
+    }
+    
+    // Calcular o valor total da hospedagem
+    let valorTotal = valorDiaria * quantidadeDias;
+    alert(`O valor de ${quantidadeDias} dias de hospedagem é de R$${valorTotal.toFixed(2)}.`);
+    
+    // Perguntar o nome do hóspede
+    const nomeHospede = prompt("Qual o nome do hóspede?");
+    
+    // Confirmar a reserva
+    const confirmacao = prompt(`${nomeHospede}, você confirma a hospedagem para ${nomeHospede} por ${quantidadeDias} dias? (S/N)`);
+    
+    if (confirmacao.toUpperCase() === 'S') {
+        alert(`Reserva efetuada para ${nomeHospede}. O valor total é de R$${valorTotal.toFixed(2)}.`);
+    } else {
+        alert("Reserva não efetuada.");
+    }
+}
+
+// Chamada da função de Reservar Quarto
+reservarQuarto();
+    </script>
+</body>
+</html>

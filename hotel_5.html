@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (5)</title>
+</head>
+<body>
+    <script>
+        function calcularBuffet() {
+            const capacidadeMaxima = 350;
+            const custoCafePorLitro = 0.80;
+            const custoAguaPorLitro = 0.40;
+            const custoCentenaSalgados = 34.00;
+            const cafePorConvidado = 0.2;
+            const aguaPorConvidado = 0.5;
+            const salgadosPorConvidado = 7;
+
+            let numeroConvidados = parseInt(prompt("Qual o número de convidados para o evento?"));
+
+            if (numeroConvidados > capacidadeMaxima) {
+                alert("Quantidade de convidados superior à capacidade máxima.");
+                return;
+            }
+
+            let litrosCafe = numeroConvidados * cafePorConvidado;
+            let litrosAgua = numeroConvidados * aguaPorConvidado;
+            let quantidadeSalgados = numeroConvidados * salgadosPorConvidado;
+
+            let custoTotalCafe = litrosCafe * custoCafePorLitro;
+            let custoTotalAgua = litrosAgua * custoAguaPorLitro;
+            let custoTotalSalgados = (quantidadeSalgados / 100) * custoCentenaSalgados;
+
+            let custoTotal = custoTotalCafe + custoTotalAgua + custoTotalSalgados;
+
+            alert(`O evento precisará de ${litrosCafe.toFixed(1)} litros de café, ${litrosAgua.toFixed(1)} litros de água, ${quantidadeSalgados} salgados. O custo total do evento será de R$ ${custoTotal.toFixed(2)}`);
+
+            let resposta = prompt("Gostaria de efetuar a reserva? S/N").toUpperCase();
+
+            if (resposta === "S") {
+                alert("Reserva efetuada com sucesso.");
+            } else {
+                alert("Reserva não efetuada.");
+            }
+        }
+
+        calcularBuffet();
+    </script>
+</body>
+</html>

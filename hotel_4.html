@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (4)</title>
+</head>
+<body>
+    <script>
+         function calcularCustoGarcons() {
+            const custoPorHora = 10.50;
+
+            // Perguntar ao usuário a duração do evento e o número de garçons
+            let duracaoEvento = parseFloat(prompt("Qual a duração do evento em horas?"));
+            let numeroGarcons = parseInt(prompt("Quantos garçons serão necessários?"));
+
+            // Calcular o custo total
+            let custoTotal = duracaoEvento * numeroGarcons * custoPorHora;
+            alert(`Custo total: R$ ${custoTotal.toFixed(2)}`);
+
+            // Perguntar se o usuário deseja efetuar a reserva
+            let resposta = prompt("Gostaria de efetuar a reserva? S/N").toUpperCase();
+
+            // Exibir a mensagem de acordo com a resposta do usuário
+            if (resposta === "S") {
+                alert("Reserva efetuada com sucesso.");
+            } else {
+                alert("Reserva não efetuada.");
+            }
+        }
+
+        calcularCustoGarcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (6)</title>
+</head>
+<body>
+    <script>
+           function reservarAuditorio() {
+            // Capacidade do auditório Laranja e sua capacidade adicional
+            const capacidadeLaranja = 150;
+            const capacidadeAdicionalLaranja = 70;
+            // Capacidade do auditório Colorado
+            const capacidadeColorado = 350;
+
+            // Solicita ao usuário o número de convidados
+            let numeroConvidados = parseInt(prompt("Qual o número de convidados para o seu evento?"));
+
+            // Verifica se o número de convidados é maior que 350 ou menor que 0
+            if (numeroConvidados > capacidadeColorado || numeroConvidados < 0) {
+               
+                alert("Número de convidados inválido.");
+                return; // Sai da função
+            }
+
+            // Verifica se os convidados cabem no auditório Laranja com cadeiras adicionais
+            if (numeroConvidados <= capacidadeLaranja + capacidadeAdicionalLaranja) {
+                if (numeroConvidados <= capacidadeLaranja) {
+                   
+                    alert("Use o auditório Laranja.");
+                } else {
+                    // Calcula e exibe o número de cadeiras adicionais necessárias
+                    let cadeirasAdicionais = numeroConvidados - capacidadeLaranja;
+                    alert(`Use o auditório Laranja (inclua mais ${cadeirasAdicionais} cadeiras).`);
+                }
+            } else {
+                // Se o número de convidados não cabe no auditório Laranja, use o auditório Colorado
+                alert("Use o auditório Colorado.");
+            }
+
+            // Pergunta ao usuário se deseja efetuar a reserva
+            let resposta = prompt("Gostaria de efetuar a reserva? S/N").toUpperCase();
+
+          
+            if (resposta === "S") {
+    
+                alert("Reserva efetuada com sucesso.");
+            } else {
+           
+                alert("Reserva não efetuada.");
+            }
+        }
+
+        reservarAuditorio();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (8)</title>
+</head>
+<body>
+    <script>
+        function verificarCombustivelMaisBarato() {
+    // Pedir os valores do álcool e da gasolina nos postos Wayne Oil e Stark Petrol
+    let precoAlcoolWayneOil = parseFloat(prompt("Qual o valor do álcool no posto Wayne Oil?"));
+    let precoGasolinaWayneOil = parseFloat(prompt("Qual o valor da gasolina no posto Wayne Oil?"));
+    let precoAlcoolStarkPetrol = parseFloat(prompt("Qual o valor do álcool no posto Stark Petrol?"));
+    let precoGasolinaStarkPetrol = parseFloat(prompt("Qual o valor da gasolina no posto Stark Petrol?"));
+
+    // Calcular o custo do abastecimento com álcool e gasolina em ambos os postos
+    let custoAbastecimentoAlcoolWayneOil = precoAlcoolWayneOil * 42;
+    let custoAbastecimentoGasolinaWayneOil = precoGasolinaWayneOil * 42;
+    let custoAbastecimentoAlcoolStarkPetrol = precoAlcoolStarkPetrol * 42;
+    let custoAbastecimentoGasolinaStarkPetrol = precoGasolinaStarkPetrol * 42;
+
+    // Verificar qual combustível é mais atraente e qual posto é mais barato
+    let combustivelMaisAtraente = "";
+    let postoMaisBarato = "";
+
+    if ((precoAlcoolWayneOil * 1.3) < precoGasolinaWayneOil) {
+        combustivelMaisAtraente = "álcool";
+        postoMaisBarato = "Wayne Oil";
+    } else {
+        combustivelMaisAtraente = "gasolina";
+        postoMaisBarato = "Wayne Oil";
+    }
+
+    if ((precoAlcoolStarkPetrol * 1.3) < precoGasolinaStarkPetrol) {
+        if (precoAlcoolStarkPetrol < precoAlcoolWayneOil) {
+            combustivelMaisAtraente = "álcool";
+            postoMaisBarato = "Stark Petrol";
+        }
+    } else {
+        if (precoGasolinaStarkPetrol < precoGasolinaWayneOil) {
+            combustivelMaisAtraente = "gasolina";
+            postoMaisBarato = "Stark Petrol";
+        }
+    }
+
+    // Exibir mensagem com o resultado
+    alert(`É mais barato abastecer com ${combustivelMaisAtraente} no posto ${postoMaisBarato}.`);
+}
+
+verificarCombustivelMaisBarato();
+
+    </script>
+    
+</body>
+</html>

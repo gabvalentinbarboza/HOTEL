@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel do Redd (7)</title>
+</head>
+<body>
+    <script>
+        
+        function verificarDisponibilidadeRestaurante() {
+    let diaSemana = prompt("Qual o dia do seu evento?").toLowerCase();
+    let horaEvento = parseInt(prompt("Qual a hora do seu evento?"));
+
+    let restauranteDisponivel = false;
+    let horarioRestaurante = "";
+
+    // Verificar disponibilidade do restaurante de acordo com o dia da semana e horário
+    if ((diaSemana === "segunda" || diaSemana === "terca" || diaSemana === "quarta" || diaSemana === "quinta" || diaSemana === "sexta") &&
+        (horaEvento >= 7 && horaEvento <= 23)) {
+        restauranteDisponivel = true;
+        horarioRestaurante = "das 7hs às 23hs";
+    } else if ((diaSemana === "sabado" || diaSemana === "domingo") &&
+        (horaEvento >= 7 && horaEvento <= 15)) {
+        restauranteDisponivel = true;
+        horarioRestaurante = "das 7hs às 15hs";
+    }
+
+    // Se o restaurante estiver disponível, perguntar o nome da empresa e exibir mensagem de reserva
+    if (restauranteDisponivel) {
+        let nomeEmpresa = prompt("Qual o nome da empresa?");
+        alert(`Restaurante reservado para ${nomeEmpresa}: ${diaSemana} às ${horaEvento}hs.`);
+    } else {
+        alert("Restaurante indisponível.");
+    }
+}
+
+verificarDisponibilidadeRestaurante();
+
+    </script>
+    
+</body>
+</html>
